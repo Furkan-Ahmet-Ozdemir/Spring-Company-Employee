@@ -9,7 +9,7 @@ import java.util.List;
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long compId;
 
     @Column(name = "name")
     private String companyName;
@@ -27,11 +27,20 @@ public class Company {
     public Company() {
     }
 
-    public Company( String companyName, String ceo, String emailId) {
+    public Company( String companyName, String ceo, String emailId,long compId) {
         super();
+        this.compId= compId;
         this.companyName = companyName;
         this.ceo = ceo;
         this.emailId = emailId;
+    }
+
+    public long getCompId() {
+        return compId;
+    }
+
+    public void setCompId(long compId) {
+        this.compId = compId;
     }
 
     public String getCompanyName() {
